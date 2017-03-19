@@ -46,7 +46,8 @@ def loops_1a():
     """
     star_list = []
     for x in range(10):
-        print "*"
+        star_list.append('*')
+    return star_list
 
 
 def star_map():
@@ -57,7 +58,12 @@ def star_map():
     if it's even. Reuse the is odd function that you've already written.
     E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
     """
-    pass
+    def star_or_exclamation(a_number):
+        if is_odd(a_number):
+            return "*"
+        else:
+            return "!"
+    return map(star_or_exclamation, range(10))
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -68,7 +74,11 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+    Hash_list = []
+    for x in range(number_of_items):
+        Hash_list.append(symbol)
+
+    return Hash_list
 
 
 def loops_2():
@@ -89,7 +99,14 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    star_square = []
+    for j in range(10):
+        star_list = []
+        for i in range(10):
+            star_list.append("*")
+        star_square.append(star_list)
+
+    return star_square
 
 
 def loops_3():
@@ -113,7 +130,14 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    number_square = []
+    for x in range(10):
+        number_row = []
+        for y in range(10):
+            number_row.append(str(x))
+        number_square.append(number_row)
+
+    return number_square
 
 
 def loops_4():
@@ -131,7 +155,14 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    number_square = []
+    for x in range(10):
+        number_row = []
+        for y in range(10):
+            number_row.append(str(y))
+        number_square.append(number_row)
+
+    return number_square
 
 
 def loops_5():
@@ -156,7 +187,14 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
+    coordinates_square = []
+    for i in range(10):
+        coordinates__row = []
+        for j in range(5):
+            coordinates__row.append('(i{}, j{})'.format(i, j))
+        coordinates_square.append(coordinates__row)
+    print(coordinates_square)
+    return coordinates_square
 
 
 def loops_6():
@@ -179,7 +217,14 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    number_square = []
+    for x in range(10):
+        number_row = []
+        for y in range(x + 1):
+            number_row.append(str(y))
+        number_square.append(number_row)
+
+    return number_square
 
 
 def loops_7():
@@ -203,7 +248,14 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    star_square = []
+    for j in range(5):
+        star_row = []
+        for i in range(2 * j + 1):
+            star_row.append("*")
+        star_square.append(star_row)
+
+    return star_square
 
 
 def lp(some_kind_of_list, exercise_name):
