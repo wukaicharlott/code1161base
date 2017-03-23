@@ -144,16 +144,14 @@ def loops_4():
     """Make a block of numbers that rises left to right.
 
     Return this:
-    [
+    [ ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    ]
+      ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']]
     """
     number_square = []
     for x in range(10):
@@ -248,14 +246,16 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    star_square = []
-    for j in range(5):
-        star_row = []
-        for i in range(2 * j + 1):
-            star_row.append("*")
-        star_square.append(star_row)
-
-    return star_square
+    pyramidList = []
+    for index in range(5):
+        stacklist = []
+        for j in range(9):
+            if (5 - index - 2 < j and j < index + 5):
+                stacklist.append("*")
+            else:
+                stacklist.append(" ")
+        pyramidList.append(stacklist)
+    return pyramidList
 
 
 def lp(some_kind_of_list, exercise_name):
