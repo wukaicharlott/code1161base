@@ -1,4 +1,5 @@
 
+# coding=utf-8
 """Modify each function until the tests pass."""
 from __future__ import division
 from __future__ import print_function
@@ -28,7 +29,7 @@ def fix_it(moves=True, should_move=True):
     elif moves and not should_move:
         return "Duct Tape"
     elif not moves and not should_move:
-        return "No problem"
+        return "No Problem"
     elif not moves and should_move:
         return "WD-40"
     else:
@@ -63,7 +64,7 @@ def star_map():
         else:
             return "!"
 
-    result = map(star_or_bang, range=(10))
+    result = map(star_or_bang, range(10))
     return result
 
 
@@ -128,11 +129,11 @@ def loops_3():
          so call str(number) to cast.
     """
     number_square = []
-    for x in range(10):
+    for i in range(10):
         number_row = []
-    for j in range(10):
-        number_row.append(str(x))
-    number_square.append(number_row)
+        for j in range(10):
+            number_row.append(str(i))
+        number_square.append(number_row)
 
     return number_square
 
@@ -153,9 +154,11 @@ def loops_4():
     ]
     """
     number_square = []
-    for x in range(10):
-        number_square.append(range(10))
-
+    for i in range(10):
+        number_row = []
+        for j in range(10):
+            number_row.append(str(j))
+        number_square.append(number_row)
     return number_square
 
 
@@ -182,12 +185,12 @@ def loops_5():
     you'll come to see the pros and cons of each over time.
     """
     number_square = []
-    for x in range(10):
+    for i in range(10):
         coordinates_row = []
         for j in range(5):
-            coordinates_row.apeend('(x{},j{})'.format(x, j))
+            coordinates_row.append('(i{}, j{})'.format(i, j))
         number_square.append(coordinates_row)
-    print(number_square)
+    return number_square
 
 
 def loops_6():
@@ -214,10 +217,10 @@ def loops_6():
 
     for i in range(10):
         row = []
-        for j in range(i * 1):
-            row.append(j)
+        for j in range(i + 1):
+            row.append(str(j))
         the_wedge.append(row)
-        return the_wedge
+    return the_wedge
 
 
 def loops_7():
@@ -241,7 +244,14 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    for i in range(1, 6):
+        for j in range(11-i):
+            print("", end="")
+        for j in range(1, i):
+            print("*", end="")
+        for i in range(i, 0, -1):
+            print("*", end="")
+        print("\n")
 
 
 def lp(some_kind_of_list, exercise_name):
