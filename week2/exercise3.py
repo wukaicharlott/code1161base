@@ -244,14 +244,18 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    for i in range(1, 6):
-        for j in range(11-i):
-            print("", end="")
-        for j in range(1, i):
-            print("*", end="")
-        for i in range(i, 0, -1):
-            print("*", end="")
-        print("\n")
+    columns = []
+    for x in range(5):
+        rows = []
+        for y in range(9):
+            if abs(y-4) <= x:
+                rows.append('*')
+            else:
+                rows.append(' ')
+        columns.append(rows)
+
+    print(columns)
+    return columns
 
 
 def lp(some_kind_of_list, exercise_name):
