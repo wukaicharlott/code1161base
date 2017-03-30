@@ -69,7 +69,6 @@ def stubborn_asker(low, high):
     pass
 
 
-
 def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
 
