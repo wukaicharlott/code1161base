@@ -48,9 +48,15 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     has odd steps be one size and even steps be another.
     """
     a_list_of_numbers = []
-    for x in range(start, stop, even_step, odd_step):
-        a_list_of_numbers.append(x)
-    print(a_list_of_numbers)
+    latest = start
+    beat = 0
+    while start < stop:
+        a_list_of_numbers.append(latest)
+        if beat % 2 == 0:
+            latest += even_step
+        else:
+            latest = odd_step
+        beat += 1
     return a_list_of_numbers
 
 
@@ -60,7 +66,8 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    pass
+    message = "giveme a number between {low}, and{high}: ".format(low=low, high=high)
+
 
 
 def not_number_rejector(message):
@@ -70,7 +77,14 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    message = "give me a number:"
+
+    while True:
+        try:
+            input_number = int(raw_input(message))
+            print(input_number)
+        except Exception as e:
+            print("err, you wot, try again({})".format(e))
 
 
 def super_asker(low, high):
