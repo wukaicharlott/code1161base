@@ -12,10 +12,11 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    a_list_of_numbers = []
-    for x in range(start, stop, step):
-        a_list_of_numbers.append(x)
-    return a_list_of_numbers
+    numList = []
+    for i in xrange(start, stop, step):
+        numList.append(i)
+    return numList
+    pass
 
 
 def lone_ranger(start, stop, step):
@@ -23,10 +24,13 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    a_list_of_numbers = []
-    for x in range(start, stop, step):
-        a_list_of_numbers.append(x)
-    return a_list_of_numbers
+    loneRanger = []
+    index = start
+    while (index < stop):
+        loneRanger.append(index)
+        index = index + step
+    return loneRanger
+    pass
 
 
 def two_step_ranger(start, stop):
@@ -35,10 +39,11 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    a_list_of_numbers = []
-    for x in range(start, stop, 2):
-        a_list_of_numbers.append(x)
-    return a_list_of_numbers
+    twoStepRanger = []
+    for i in xrange(start, stop, 2):
+        twoStepRanger.append(i)
+    return twoStepRanger
+    pass
 
 
 def gene_krupa_range(start, stop, even_step, odd_step):
@@ -47,17 +52,18 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     make a list that instead of having evenly spaced steps
     has odd steps be one size and even steps be another.
     """
-    a_list_of_numbers = []
-    latest = start
-    beat = 0
-    while start < stop:
-        a_list_of_numbers.append(latest)
-        if beat % 2 == 0:
-            latest += even_step
+    index = start
+    evenOddRange = []
+    evenOdd = 0
+    while (index < stop):
+        evenOddRange.append(index)
+        if evenOdd % 2 == 1:
+            index = index + odd_step
         else:
-            latest = odd_step
-        beat += 1
-    return a_list_of_numbers
+            index = index + even_step
+        evenOdd = evenOdd + 1
+    return evenOddRange
+    pass
 
 
 def stubborn_asker(low, high):
@@ -66,6 +72,16 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
+    message = "Enter a Numer between {low} and {high}: ".format(low=low,
+                                                                high=high)
+    number = int(raw_input(message))
+    while True:
+        if (low < number < high):
+            print("{} is fine.".format(number))
+            return number
+        else:
+            number = int(raw_input("Please enter another number: "))
+    return number
     pass
 
 
@@ -76,14 +92,19 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    message = "give me a number:"
-
-    while True:
+    answered = False
+    while answered is False:
+        answered = True
+        inputVar = raw_input(message)
         try:
-            input_number = int(raw_input(message))
-            print(input_number)
-        except Exception as e:
-            print("err, you wot, try again({})".format(e))
+            inputVar = int(inputVar)
+            break
+        except Exception:
+            try:
+                inputVar = float(inputVar)
+            except Exception:
+                answered = False
+    return inputVar
 
 
 def super_asker(low, high):
@@ -92,7 +113,23 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    message = "Enter a Numer between {low} and {high}: ".format(low=low,
+                                                                high=high)
+    tryAgain = True
+    while tryAgain is True:
+        tryAgain = False
+        try:
+            number = int(raw_input(message))
+            if (low < number < high):
+                print("{} is fine.".format(number))
+            else:
+                print("This number is not between " + str(low) + " and "
+                      + str(high))
+                tryAgain = True
+        except Exception:
+            print("You did not enter a number!")
+            tryAgain = True
+    return number
 
 
 if __name__ == "__main__":
@@ -111,6 +148,6 @@ if __name__ == "__main__":
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
-    not_number_rejector("give me a number:")
+    not_number_rejector()
     print("\nsuper_asker")
     super_asker(33, 42)
