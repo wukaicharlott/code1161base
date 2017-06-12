@@ -2,21 +2,16 @@ git config --global credential.helper 'cache --timeout=36000' #cache password fo
 git config --global color.ui auto #colour the output in git
 git config --global core.editor "atom --wait"
 
-sudo -H pip uninstall flake8
-sudo -H pip install flake8
-sudo -H pip install colorama
-sudo -H pip install pydocstyle
-sudo -H pip install pandas
+sudo pip uninstall flake8
+sudo pip install flake8
+sudo pip install colorama
+sudo pip install pydocstyle
 
-sudo chmod 777 ~/.atom/packages/
-# forgive me for what I'm about to do
 apm upgrade
 apm install autocomplete-python
 apm install file-icons
 apm install highlight-selected
 apm install linter
-apm install linter-ui-default
-apm install busy-signal
 apm install linter-flake8
 apm install linter-pydocstyle
 apm install markdown-writer
